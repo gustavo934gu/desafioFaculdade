@@ -1,5 +1,6 @@
-public class FuncionarioProducao extends Funcionarios {
-    public FuncionarioProducao(String name, Long numberRegistration, String tipe) {
-        super(name, numberRegistration, tipe);
+public class FuncionarioProducao extends Funcionario {
+
+    public FuncionarioProducao(String name, String registration, String type, double baseSalary) {
+        super(name, registration, type, baseSalary);
     }
 }

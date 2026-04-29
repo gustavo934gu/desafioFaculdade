@@ -1,5 +1,8 @@
-public class FuncionarioComissionado extends Funcionarios {
-    public FuncionarioComissionado(String name, Long numberRegistration, String tipe) {
-        super(name, numberRegistration, tipe);
+public class FuncionarioComissionado extends Funcionario {
+    private double percentage;
+    private double sales;
+
+    public FuncionarioComissionado(String name, String registration, String type, double baseSalary) {
+        super(name, registration, type, baseSalary);
     }
 }

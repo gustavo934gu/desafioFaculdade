@@ -13,6 +13,12 @@ public class Main {
 
         lista.add(f1);
         lista.add(f2);
+
+        FuncionarioComissionado fc1 = new FuncionarioComissionado("Eduardo","32489127491","Comissionado",
+                2000,5,8000);
+        System.out.println("Salario = "+fc1.calculateSalary());
+        fc1.calculateSalary();
+        lista.add(fc1);
         for (Funcionario f : lista) {
             System.out.println(f.getName() + " - Salário: " + f.calculateSalary());
         }

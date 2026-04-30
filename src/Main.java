@@ -6,24 +6,36 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        int option;
         Scanner sc = new Scanner(System.in);
-        ArrayList<Funcionario> lista = new ArrayList<>();
-        Funcionario f1 = new Funcionario("Gustavo","21381273","Funcionario",2000);
-        Funcionario f2 = new Funcionario("Freire","21122273","Funcionario",2000);
+        while (true){
+            System.out.println("""
+        
+                Sistema cadastro de Funcionarios:
+                1 - Cadastrar
+                2 - Listar
+                3 - Sair
+        
+        """);
+            option = sc.nextInt();
+            switch(option){
+                case 1 -> {
+                    System.out.println("""
+                        Escolha o tipo:
+                        1 - Padrão
+                        2 - Comissionado
+                        3 - Produção
+                    """);
+                    int type = sc.nextInt();
+                    sc.nextInt();
 
-        lista.add(f1);
-        lista.add(f2);
+                    sistema.cadastrarFuncionario(type);
+                    return;
+                }
 
-        FuncionarioComissionado fc1 = new FuncionarioComissionado("Eduardo","32489127491","Comissionado",
-                2000,5,8000);
-        System.out.println("Salario = "+fc1.calculateSalary());
-        fc1.calculateSalary();
-        lista.add(fc1);
-        for (Funcionario f : lista) {
-            System.out.println(f.getName() + " - Salário: " + f.calculateSalary());
+            }
+
+
         }
-
-
-
     }
 }

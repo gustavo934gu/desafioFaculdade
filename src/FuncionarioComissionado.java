@@ -18,8 +18,8 @@ public class FuncionarioComissionado extends Funcionario {
         this.sales = sales;
     }
 
-    public FuncionarioComissionado(String name, String registration, String type, double baseSalary, double percentage, double sales) {
-        super(name, registration, type, baseSalary);
+    public FuncionarioComissionado(String name, String registration, String type, double percentage, double sales) {
+        super(name, registration, type);
         this.sales = sales;
         this.percentage = percentage;
     }
@@ -30,6 +30,6 @@ public class FuncionarioComissionado extends Funcionario {
     }
     @Override
     public double calculateSalary(){
-        return baseSalary+calculateCommission();
+        return BASE_SALARY+calculateCommission();
     }
 }

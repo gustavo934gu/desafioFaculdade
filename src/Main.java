@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         int option;
         Scanner sc = new Scanner(System.in);
+        CadastroFuncionarios sistema = new CadastroFuncionarios();
         while (true){
             System.out.println("""
         
@@ -27,9 +28,8 @@ public class Main {
                         3 - Produção
                     """);
                     int type = sc.nextInt();
-                    sc.nextInt();
-
-                    sistema.cadastrarFuncionario(type);
+                    sc.nextLine();
+                    sistema.cadastrarFuncionario(type,sc);
                     return;
                 }
 

@@ -2,13 +2,11 @@ public class Funcionario {
 
     private String name;
     private String registration;
-    private String type;
     public static final double BASE_SALARY = 2000;
 
-    public Funcionario(String name, String registration, String type) {
+    public Funcionario(String name, String registration) {
         this.name = name;
         this.registration = registration;
-        this.type = type;
     }
 
     public String getName() {
@@ -17,10 +15,6 @@ public class Funcionario {
 
     public String getRegistration() {
         return registration;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public double calculateSalary() {

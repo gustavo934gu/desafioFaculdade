@@ -20,6 +20,10 @@ public class CadastroFuncionarios {
             case 2 ->{
                 System.out.println("Informe valor das vendas: ");
                 var sales = sc.nextDouble();
+                if(sales < 0){
+                    System.out.println("Valor inválido!");
+                    return;
+                }
                 System.out.println("Informe comissão percentual: ");
                 var percentage = sc.nextDouble();
                 sc.nextLine();

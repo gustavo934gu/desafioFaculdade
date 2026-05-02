@@ -1,43 +1,41 @@
 public class FuncionarioComissionado extends Funcionario {
-    private double percentage;
-    private double sales;
+    private double percentual;
+    private double vendas;
 
-    public double getPercentage() {
-        return percentage;
+    public double getPercentual() {
+        return percentual;
     }
 
-    public void setPercentage(double percentage) {
-        this.percentage = percentage;
+    public void setPercentual(double percentual) {
+        this.percentual = percentual;
     }
 
-    public double getSales() {
-        return sales;
+    public double getVendas() {
+        return vendas;
     }
 
-    public void setSales(double sales) {
-        this.sales = sales;
+    public void setVendas(double vendas) {
+        this.vendas = vendas;
     }
 
-    public FuncionarioComissionado(String name, String registration,double percentage, double sales) {
+    public FuncionarioComissionado(String name, String registration, double percentual, double vendas) {
         super(name, registration);
-        this.sales = sales;
-        this.percentage = percentage;
+        this.vendas = vendas;
+        this.percentual = percentual;
     }
 
     public double calculateCommission(){
-        double commission = sales*percentage/100;
+        double commission = vendas * percentual /100;
         return commission;
     }
     @Override
-    public double calculateSalary(){
-        return BASE_SALARY+calculateCommission();
+    public double calcularSalario(){
+        return SALARIO_BASE +calculateCommission();
     }
     @Override
     public void exibirDados(){
-        System.out.println("Nome: " + getName());
-        System.out.println("Matrícula: " + getRegistration());
-        System.out.println("Salário Fixo: " + BASE_SALARY);
+        exibirDadosBase();
         System.out.println("Comissão: " + calculateCommission());
-        System.out.println("Salário final: " + calculateSalary());
+        System.out.println("Salário final: " + calcularSalario());
     }
 }

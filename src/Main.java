@@ -6,7 +6,7 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        int option;
+        int opcao;
         Scanner sc = new Scanner(System.in);
         CadastroFuncionarios sistema = new CadastroFuncionarios();
         while (true){
@@ -20,8 +20,8 @@ public class Main {
                 4 - Gerar Folha de Pagamento
         
         """);
-            option = sc.nextInt();
-            switch(option){
+            opcao = sc.nextInt();
+            switch(opcao){
 
                 case 0 -> {
                     System.out.println("Saindo...");
@@ -29,8 +29,8 @@ public class Main {
                 }
 
                 case 1, 2, 3 -> {
-                    sc.nextLine(); // limpar buffer
-                    sistema.cadastrarFuncionario(option, sc);
+                    sc.nextLine();
+                    sistema.cadastrarFuncionario(opcao, sc);
                 }
 
                 case 4 -> {

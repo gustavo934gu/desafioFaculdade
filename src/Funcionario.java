@@ -1,32 +1,34 @@
 public class Funcionario {
 
-    private String name;
-    private String registration;
+    private String nome;
+    private String matricula;
     private double extra = 0.0;
-    public static final double BASE_SALARY = 2000;
+    public static final double SALARIO_BASE = 2000;
 
-    public Funcionario(String name, String registration) {
-        this.name = name;
-        this.registration = registration;
+    public Funcionario(String nome, String matricula) {
+        this.nome = nome;
+        this.matricula = matricula;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public String getRegistration() {
-        return registration;
+    public String getMatricula() {
+        return matricula;
     }
 
-    public double calculateSalary() {
-        return BASE_SALARY;
+    public double calcularSalario() {
+        return SALARIO_BASE;
+    }
+    public void exibirDadosBase() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Matrícula: " + matricula);
+        System.out.println("Salário Fixo: " + SALARIO_BASE);
     }
     public void exibirDados() {
-        System.out.println("Nome: " + name);
-        System.out.println("Matrícula: " + registration);
-        System.out.println("Salário Fixo: " + BASE_SALARY);
+        exibirDadosBase();
         System.out.println("Extras: "+ extra);
-        System.out.println("Salário final: " + calculateSalary());
+        System.out.println("Salário final: " + calcularSalario());
     }
-
 }

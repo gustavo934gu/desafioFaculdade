@@ -1,43 +1,41 @@
 public class FuncionarioProducao extends Funcionario {
-    private double pricePerItem;
-    private double quantityProduced;
+    private double precoPorItem;
+    private double quantidadeProduzida;
 
-    public FuncionarioProducao(String name, String registration,double pricePerItem, double quantityProduced) {
+    public FuncionarioProducao(String name, String registration, double precoPorItem, double quantidadeProduzida) {
         super(name, registration);
-        this.pricePerItem = pricePerItem;
-        this.quantityProduced = quantityProduced;
+        this.precoPorItem = precoPorItem;
+        this.quantidadeProduzida = quantidadeProduzida;
     }
     public double calculateBonus(){
-        return pricePerItem * quantityProduced;
+        return precoPorItem * quantidadeProduzida;
     }
 
-    public double getPricePerItem() {
-        return pricePerItem;
+    public double getPrecoPorItem() {
+        return precoPorItem;
     }
 
-    public void setPricePerItem(double pricePerItem) {
-        this.pricePerItem = pricePerItem;
+    public void setPrecoPorItem(double precoPorItem) {
+        this.precoPorItem = precoPorItem;
     }
 
-    public double getQuantityProduced() {
-        return quantityProduced;
+    public double getQuantidadeProduzida() {
+        return quantidadeProduzida;
     }
 
-    public void setQuantityProduced(double quantityProduced) {
-        this.quantityProduced = quantityProduced;
+    public void setQuantidadeProduzida(double quantidadeProduzida) {
+        this.quantidadeProduzida = quantidadeProduzida;
     }
 
     @Override
-    public double calculateSalary(){
-        return BASE_SALARY+calculateBonus();
+    public double calcularSalario(){
+        return SALARIO_BASE +calculateBonus();
     }
 
     @Override
     public void exibirDados() {
-        System.out.println("Nome: " + getName());
-        System.out.println("Matrícula: " + getRegistration());
-        System.out.println("Salário Fixo: " + BASE_SALARY);
+        exibirDadosBase();
         System.out.println("Produtividade: " + calculateBonus());
-        System.out.println("Salário final: " + calculateSalary());
+        System.out.println("Salário final: " + calcularSalario());
     }
 }

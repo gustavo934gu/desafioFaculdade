@@ -2,8 +2,8 @@ public class FuncionarioProducao extends Funcionario {
     private double pricePerItem;
     private double quantityProduced;
 
-    public FuncionarioProducao(String name, String registration, String type,double pricePerItem, double quantityProduced) {
-        super(name, registration, type);
+    public FuncionarioProducao(String name, String registration,double pricePerItem, double quantityProduced) {
+        super(name, registration);
         this.pricePerItem = pricePerItem;
         this.quantityProduced = quantityProduced;
     }
@@ -30,5 +30,14 @@ public class FuncionarioProducao extends Funcionario {
     @Override
     public double calculateSalary(){
         return BASE_SALARY+calculateBonus();
+    }
+
+    @Override
+    public void exibirDados() {
+        System.out.println("Nome: " + getName());
+        System.out.println("Matrícula: " + getRegistration());
+        System.out.println("Salário Fixo: " + BASE_SALARY);
+        System.out.println("Produtividade: " + calculateBonus());
+        System.out.println("Salário final: " + calculateSalary());
     }
 }

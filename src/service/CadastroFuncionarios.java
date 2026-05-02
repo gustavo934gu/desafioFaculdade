@@ -3,6 +3,7 @@ package service;
 import model.Funcionario;
 import model.FuncionarioComissionado;
 import model.FuncionarioProducao;
+import util.ValidarEntrada;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,36 +13,20 @@ public class CadastroFuncionarios {
     private List<Funcionario> lista = new ArrayList<>();
 
     public void cadastrarFuncionario(int opcao, Scanner sc){
-        System.out.println("Nome: ");
-        String nome = sc.nextLine();
-        if (!nome.matches("[a-zA-Z ]+")) {
-            System.out.println("Nome inválido! Digite apenas letras.");
-            return;
-        }
-        System.out.println("Matrícula: ");
-        String matricula = sc.nextLine();
+        String nome = ValidarEntrada.lerNome(sc,"Nome: ");
+        String matricula = lerMatricula(sc);
         Funcionario f;
         switch (opcao){
             case 1 ->{f = new Funcionario(nome,matricula); lista.add(f); }
             case 2 ->{
-                System.out.println("Informe valor das vendas: ");
-                var vendas = sc.nextDouble();
-                if(vendas < 0){
-                    System.out.println("Valor inválido!");
-                    return;
-                }
-                System.out.println("Informe comissão percentual: ");
-                var percentual = sc.nextDouble();
-                sc.nextLine();
+                var vendas = ValidarEntrada.lerDoublePositivo(sc,"Informe valor das vendas: ");
+                var percentual = ValidarEntrada.lerDoublePositivo(sc,"Informe comissão percentual: ");
                 f = new FuncionarioComissionado(nome,matricula,percentual,vendas);
                 lista.add(f);
             }
             case 3->{
-                System.out.println("Informe valor da peça: ");
-                var precoPorItem = sc.nextDouble();
-                System.out.println("Informe qtde de peças: ");
-                var quantidadeProduzida = sc.nextDouble();
-                sc.nextLine();
+                var precoPorItem = ValidarEntrada.lerDoublePositivo(sc,"Informe valor da peça: ");
+                var quantidadeProduzida = ValidarEntrada.lerDoublePositivo(sc,"Informe qtde de peças: ");
                 f = new FuncionarioProducao(nome,matricula,precoPorItem,quantidadeProduzida);
                 lista.add(f);
             }
@@ -49,10 +34,35 @@ public class CadastroFuncionarios {
                 System.out.println("Tipo invalido");
             }
         }
-        System.out.println("model.Funcionario cadastrado com sucesso!!");
+        System.out.println("Funcionario cadastrado com sucesso!!");
 
 
     }
+    private boolean matriculaJaExiste(String matricula){
+        for(Funcionario f : lista){
+            if(f.getMatricula().equalsIgnoreCase(matricula)){
+                return true;
+            }
+        }
+        return false;
+    }
+    private String lerMatricula(Scanner sc){
+        while(true){
+            System.out.println("Matrícula: ");
+            String matricula = sc.nextLine().trim();
+
+            if (!matricula.matches("[a-zA-Z0-9\\-]+")) {
+                System.out.println("❌ Matrícula inválida! Use apenas letras, números ou hífen.");
+                continue;
+            }
+            if (matriculaJaExiste(matricula)) {
+                System.out.println("❌ Matrícula já cadastrada! Digite outra.");
+                continue;
+            }
+            return matricula;
+        }
+    }
+
     public void generatePaymentSheet(){
         if(lista.isEmpty()){
             System.out.println("Nenhum funcionário cadastrado.");

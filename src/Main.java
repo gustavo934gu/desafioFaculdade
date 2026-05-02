@@ -30,7 +30,6 @@ public class Main {
                 }
 
                 case 1, 2, 3 -> {
-                    sc.nextLine();
                     sistema.cadastrarFuncionario(opcao, sc);
                 }
 

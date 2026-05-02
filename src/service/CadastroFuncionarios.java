@@ -17,23 +17,23 @@ public class CadastroFuncionarios {
         String matricula = lerMatricula(sc);
         Funcionario f;
         switch (opcao){
-            case 1 ->{f = new Funcionario(nome,matricula); lista.add(f); }
+            case 1 ->{f = new Funcionario(nome,matricula); }
             case 2 ->{
                 var vendas = ValidarEntrada.lerDoublePositivo(sc,"Informe valor das vendas: ");
                 var percentual = ValidarEntrada.lerDoublePositivo(sc,"Informe comissão percentual: ");
                 f = new FuncionarioComissionado(nome,matricula,percentual,vendas);
-                lista.add(f);
             }
             case 3->{
                 var precoPorItem = ValidarEntrada.lerDoublePositivo(sc,"Informe valor da peça: ");
                 var quantidadeProduzida = ValidarEntrada.lerDoublePositivo(sc,"Informe qtde de peças: ");
                 f = new FuncionarioProducao(nome,matricula,precoPorItem,quantidadeProduzida);
-                lista.add(f);
             }
             default -> {
                 System.out.println("Tipo invalido");
+                return;
             }
         }
+        lista.add(f);
         System.out.println("Funcionario cadastrado com sucesso!!");
 
 

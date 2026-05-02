@@ -1,8 +1,9 @@
+package model;
+
 public class Funcionario {
 
     private String nome;
     private String matricula;
-    private double extra = 0.0;
     public static final double SALARIO_BASE = 2000;
 
     public Funcionario(String nome, String matricula) {
@@ -26,9 +27,12 @@ public class Funcionario {
         System.out.println("Matrícula: " + matricula);
         System.out.println("Salário Fixo: " + SALARIO_BASE);
     }
+    public double calcularExtra(){
+        return 0.0;
+    }
     public void exibirDados() {
         exibirDadosBase();
-        System.out.println("Extras: "+ extra);
+        System.out.println("Extras: "+ calcularExtra());
         System.out.println("Salário final: " + calcularSalario());
     }
 }

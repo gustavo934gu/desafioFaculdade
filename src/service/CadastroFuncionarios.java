@@ -54,6 +54,10 @@ public class CadastroFuncionarios {
 
     }
     public void generatePaymentSheet(){
+        if(lista.isEmpty()){
+            System.out.println("Nenhum funcionário cadastrado.");
+            return;
+        }
         System.out.println("Total de pessoas cadastradas: "+lista.size());
         for(Funcionario funcionario : lista){
             funcionario.exibirDados();

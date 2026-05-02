@@ -1,4 +1,5 @@
 import service.CadastroFuncionarios;
+import util.ValidarEntrada;
 
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public class Main {
                 4 - Gerar Folha de Pagamento
         
         """);
-            opcao = sc.nextInt();
+            opcao = ValidarEntrada.lerIntRange(sc,"Escolha uma opcão: ", 0,4);
             switch(opcao){
 
                 case 0 -> {

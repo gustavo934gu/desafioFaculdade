@@ -9,19 +9,19 @@ public class FuncionarioProducao extends Funcionario {
         this.precoPorItem = precoPorItem;
         this.quantidadeProduzida = quantidadeProduzida;
     }
-    public double calculateBonus(){
+    public double calcularBonus(){
         return precoPorItem * quantidadeProduzida;
     }
 
     @Override
     public double calcularSalario(){
-        return SALARIO_BASE +calculateBonus();
+        return SALARIO_BASE + calcularBonus();
     }
 
     @Override
     public void exibirDados() {
         exibirDadosBase();
-        System.out.println("Produtividade: " + calculateBonus());
+        System.out.println("Produtividade: " + calcularBonus());
         System.out.println("Salário final: " + calcularSalario());
     }
 }

@@ -3,13 +3,14 @@ import util.ValidarEntrada;
 
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         int opcao;
+
         Scanner sc = new Scanner(System.in);
+
         CadastroFuncionarios sistema = new CadastroFuncionarios();
+
         while (true){
             System.out.println("""
         
@@ -21,27 +22,24 @@ public class Main {
                 4 - Gerar Folha de Pagamento
         
         """);
+
             opcao = ValidarEntrada.lerIntRange(sc,"Escolha uma opcão: ", 0,4);
+
             switch(opcao){
 
                 case 0 -> {
                     System.out.println("Saindo...");
                     return;
                 }
-
                 case 1, 2, 3 -> {
                     sistema.cadastrarFuncionario(opcao, sc);
                 }
-
                 case 4 -> {
                     sistema.generatePaymentSheet();
                 }
-
                 default -> System.out.println("Opção inválida");
             }
 
             }
-
-
         }
     }

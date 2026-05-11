@@ -10,7 +10,7 @@ public class ValidarEntrada {
             if (valor.matches("[a-zA-ZÀ-ú ]+")) {
                 return valor;
             }
-            System.out.println("❌ Entrada inválida! Digite apenas letras.");
+            System.out.println("Entrada inválida!");
         }
     }
 

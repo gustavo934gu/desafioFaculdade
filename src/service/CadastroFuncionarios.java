@@ -52,11 +52,10 @@ public class CadastroFuncionarios {
             String matricula = sc.nextLine().trim();
 
             if (!matricula.matches("[a-zA-Z0-9\\-]+")) {
-                System.out.println("❌ Matrícula inválida! Use apenas letras, números ou hífen.");
-                continue;
+                System.out.println("Matrícula inválida! Use apenas letras");
             }
             if (matriculaJaExiste(matricula)) {
-                System.out.println("❌ Matrícula já cadastrada! Digite outra.");
+                System.out.println("Matrícula já cadastrada! Digite outra.");
                 continue;
             }
             return matricula;
